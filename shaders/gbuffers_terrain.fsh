@@ -35,7 +35,8 @@ void main() {
 		vec2 uv = fract(texcoord * vec2(atlasSize));
 		vec3 oldColor = color.rgb;
 		float level = mipMap * 0.25 - 1.5;
-		for (int i = 0; i < min(int(float(level)), 6); i++) {
+		level = min(level, 6.1);
+		for (int i = 0; i < int(floor(level)); i++) {
 			oldColor = color.rgb;
 			color.rgb *= 0.999;
 			float v = color.g * 8.0;
